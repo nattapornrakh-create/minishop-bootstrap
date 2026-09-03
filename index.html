@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniShop - Bootstrap Offline</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <style>
+    .custom-banner-img {
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .text-shadow {
+      text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar bg-white border-bottom p-3 sticky-top">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand text-danger fw-bold fs-3" href="#">🛍️ MiniShop</a>
+
+      <nav class="navbar navbar-expand-lg  navbar-light bg-white shadow-sm">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- เส้นตรง 3 ขีดขนานกัน (สลับร่างเป็นสีเข้มอัตโนมัติ) -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- 2. กล่องรายการเมนูลิงก์และระบบค้นหา (ผูก ID สอดรับกับปุ่มแฮมเบอร์เกอร์ด้านบน) -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- ปรับให้ไอเทมทุกชิ้นล็อกพิกัดอยู่กึ่งกลางแนวดิ่งด้วย align-items-lg-center -->
+          <ul class="navbar-nav ms-auto fs-6 fw-medium align-items-lg-center">
+            <li class="nav-item">
+              <!-- 📌 เอา text-white ออก เพื่อให้ปล่อยสีเข้มตามคลาสแม่ navbar-light -->
+              <a class="nav-link" href="index.html">🏠 หน้าแรก</a>
+            </li>
+            <li class="nav-item">
+              <!-- 🔗 ลิงก์ไปยังหน้าคลังสินค้าหน้าแรกจริง -->
+              <a class="nav-link" href="all-products-p1.html">🛒 สินค้าทั้งหมด</a>
+            </li>
+            <li class="nav-item">
+              <!-- 🔗 ลิงก์ไปยังหน้าตารางประวัติการสั่งซื้อ -->
+              <a class="nav-link" href="order-history.html">📦 ประวัติการสั่งซื้อ</a>
+            </li>
+
+            <!-- 🔍 3. ช่องฟอร์มค้นหาสินค้าด่วนแบบ Inline สไตล์มินิมอล -->
+            <li class="nav-item ms-lg-3 my-2 my-lg-0">
+              <form class="d-flex" role="search" action="#">
+                <!-- ช่องกรอกคำค้น ขอบมนแคปซูล พื้นหลังสว่างตัดขอบเทาจาง -->
+                <input class="form-control form-control-sm me-2 rounded-pill bg-light text-dark border-secondary-subtle"
+                  type="search" placeholder="🔍 ค้นหาสินค้า..." aria-label="Search">
+                <!-- ปุ่มกดส่งคำค้นขอบเส้นสีเข้มมินิมอล -->
+                <button class="btn btn-outline-dark btn-sm rounded-pill fw-medium" type="submit">ค้นหา</button>
+              </form>
+            </li>
+
+            <li class="nav-item ms-lg-3 mb-2 mb-lg-0">
+              <!-- 🔗 ปุ่มลิงก์สลับไปหน้าจอระบบล็อกอินสมาชิก -->
+              <a class="btn btn-danger btn-sm text-white px-3 fw-bold rounded-pill" href="login.html">🔓 เข้าสู่ระบบ</a>
+            </li>
+            <a class="btn btn-outline-danger" href="cart.html">
+              🛒 <span id="cartCountBadge" class=" badge bg-danger">0</span>
+            </a>
+
+            </li>
+
+
+          </ul>
+        </div>
+
+      </nav>
+
+    </div>
+  </header>
+
+  <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/banner1.jpg" class="d-block w-100 custom-banner-img" alt="แบนเนอร์ที่ 1" />
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="fs-1 fw-bold text-white text-shadow">
+            ยินดีต้อนรับสู่ MiniShop
+          </h2>
+          <p class="fs-5 text-white text-shadow">
+            แหล่งรวมสินค้าไอทีและอุปกรณ์การเรียนครบวงจร
+          </p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/banner2.jpg" class="d-block w-100 custom-banner-img" alt="แบนเนอร์ที่ 2" />
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/banner3.jpg" class="d-block w-100 custom-banner-img" alt="แบนเนอร์ที่ 3" />
+      </div>
+      <div class="carousel-item">
+        <img src="images/banner4.jpg" class="d-block w-100 custom-banner-img" alt="แบนเนอร์ที่ 4" />
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  <div class="container mt-5">
+    <div class="mb-4 d-flex align-items-center">
+      <h2 class="fs-3 fw-bold text-dark m-0">🌟 สินค้าแนะนำประจำสัปดาห์</h2>
+      <span class="ms-3 badge bg-danger rounded-pill">HOT</span>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <span class="badge bg-warning text-dark fw-bold position-absolute top-0 start-0 m-3 fs-6 shadow-sm">
+            🔥 สินค้าแนะนำ
+          </span>
+          <img src="images/banner1.jpg" class="card-img-top rounded-3" alt="สินค้าที่ 1"
+            style="height: 180px; object-fit: cover" />
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-dark fs-5">
+              โน้ตบุ๊กประสิทธิภาพสูง
+            </h5>
+            <p class="card-text text-secondary fs-6">
+              สเปกแรงสะใจ เหมาะสำหรับการเรียนเขียนโค้ดและทำงานกราฟิก
+            </p>
+            <p class="text-danger fw-bold fs-4 mt-auto">25,900 บาท</p>
+            <button type="button" class="btn btn-outline-secondary w-100 mb-2 fw-medium btn-sm" data-bs-toggle="modal"
+              data-bs-target="#specModal">
+              🔎 ดูสเปกและรายละเอียดด่วน
+            </button>
+
+            <!-- ซ่อนข้อมูลสินค้าในองค์ประกอบ .product-item เพื่อให้สคริปต์อ่านข้อมูล (name, price) ได้โดยไม่ต้องเปลี่ยนโครงสร้างการแสดงผล -->
+            <div class="product-item d-none" data-name="โน้ตบุ๊กประสิทธิภาพสูง" data-price="25900"></div>
+
+            <!-- ปุ่มเพิ่มลงตะกร้า: เรียกฟังก์ชัน addToCartFromCard(this) ซึ่งจะค้นหา .product-item ใกล้เคียงและนำข้อมูลไปเก็บใน localStorage -->
+            <button type="button" class="btn btn-danger w-100 fw-medium" onclick="addToCartFromCard(this)">
+              🛒 เพิ่มลงตะกร้า
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="images/banner5.jpg" class="card-img-top rounded-3" alt="สินค้าที่ 2"
+            style="height: 180px; object-fit: cover" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-dark fs-5">
+              สมาร์ตโฟนหน้าจอพับ
+            </h5>
+            <p class="card-text text-secondary fs-6">
+              นวัตกรรมล้ำสมัย กล้องคมชัด แบตเตอรี่อึด ใช้งานได้ตลอดวัน
+            </p>
+            <p class="text-danger fw-bold fs-4 mt-auto">32,900 บาท</p>
+
+            <!-- ซ่อนข้อมูลสินค้าโดยใช้ data-attribute เพื่อให้สคริปต์อ่านได้: name และ price -->
+            <div class="product-item d-none" data-name="สมาร์ตโฟนหน้าจอพับ" data-price="32900"></div>
+
+            <!-- ปุ่มเพิ่มลงตะกร้า (เรียกใช้ addToCartFromCard) -->
+            <button type="button" class="btn btn-danger w-100 fw-medium" onclick="addToCartFromCard(this)">
+              🛒 เพิ่มลงตะกร้า
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="images/banner3.jpg" class="card-img-top rounded-3" alt="สินค้าที่ 3"
+            style="height: 180px; object-fit: cover" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-dark fs-5">
+              หูฟังไร้สายตัดเสียงรบกวน
+            </h5>
+            <p class="card-text text-secondary fs-6">
+              เสียงเบสแน่น เบาสบายหู มีระบบ ANC ตัด เสียงรอบข้างได้เงียบสนิท
+            </p>
+            <p class="text-danger fw-bold fs-4 mt-auto">5,900 บาท</p>
+
+            <!-- product-item (ข้อมูลสินค้าแบบไม่แสดง) -->
+            <div class="product-item d-none" data-name="หูฟังไร้สายตัดเสียงรบกวน" data-price="5900"></div>
+
+            <button type="button" class="btn btn-danger w-100 fw-medium" onclick="addToCartFromCard(this)">
+              🛒 เพิ่มลงตะกร้า
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="images/banner6.jpg" class="card-img-top rounded-3" alt="สินค้าที่ 4"
+            style="height: 180px; object-fit: cover" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-dark fs-5">
+              แท็บเล็ตเพื่อการศึกษา
+            </h5>
+            <p class="card-text text-secondary fs-6">
+              หน้าจอกว้าง ถนอมสายตา รองรับปากกา สำหรับจดโน้ตและวาดภาพ
+            </p>
+            <p class="text-danger fw-bold fs-4 mt-auto">14,900 บาท</p>
+
+            <!-- product-item เก็บชื่อและราคา ให้สคริปต์อ่านแล้วเพิ่มลง localStorage -->
+            <div class="product-item d-none" data-name="แท็บเล็ตเพื่อการศึกษา" data-price="14900"></div>
+
+            <button type="button" class="btn btn-danger w-100 fw-medium" onclick="addToCartFromCard(this)">
+              🛒 เพิ่มลงตะกร้า
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="images/banner2.jpg" class="card-img-top rounded-3" alt="สินค้าที่ 1"
+            style="height: 180px; object-fit: cover" />
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-dark fs-5">
+              เม้าส์ไร้สายประหยัดพลังงาน
+            </h5>
+            <p class="card-text text-secondary fs-6">
+              ดีไซน์สวยงาม จับถนัดมือ
+              ใช้งานได้ยาวนานโดยไม่ต้องเปลี่ยนแบตเตอรี่
+            </p>
+            <p class="text-danger fw-bold fs-4 mt-auto">590 บาท</p>
+
+            <!-- product-item เก็บข้อมูลสินค้า (เม้าส์) -->
+            <div class="product-item d-none" data-name="เม้าส์ไร้สายประหยัดพลังงาน" data-price="590"></div>
+
+            <button type="button" class="btn btn-danger w-100 fw-medium" onclick="addToCartFromCard(this)">
+              🛒 เพิ่มลงตะกร้า
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="images/banner9.jpg" class="card-img-top rounded-3" alt="สินค้าที่ 1"
+            style="height: 180px; object-fit: cover" />
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-dark fs-5">
+              พาวเวอร์แบงค์
+            </h5>
+            <p class="card-text text-secondary fs-6">
+              ชาร์จอุปกรณ์ได้หลายเครื่องพร้อมกัน รองรับเทคโนโลยีชาร์จเร็ว
+            </p>
+            <p class="text-danger fw-bold fs-4 mt-auto">1500 บาท</p>
+
+            <!-- product-item พาวเวอร์แบงค์ -->
+            <div class="product-item d-none" data-name="พาวเวอร์แบงค์" data-price="1500"></div>
+
+            <button type="button" class="btn btn-danger w-100 fw-medium" onclick="addToCartFromCard(this)">
+              🛒 เพิ่มลงตะกร้า
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="images/banner10.jpg" class="card-img-top rounded-3" alt="สินค้าที่ 1"
+            style="height: 180px; object-fit: cover" />
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-dark fs-5">
+              มือถือ
+            </h5>
+            <p class="card-text text-secondary fs-6">
+              ความจุสูง
+            </p>
+            <p class="text-danger fw-bold fs-4 mt-auto">8900 บาท</p>
+
+            <!-- product-item:   มือถือ -->
+            <div class="product-item d-none" data-name="  มือถือ" data-price="8900"></div>
+
+            <button type="button" class="btn btn-danger w-100 fw-medium" onclick="addToCartFromCard(this)">
+              🛒 เพิ่มลงตะกร้า
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="images/banner11.jpg" class="card-img-top rounded-3" alt="สินค้าที่ 1"
+            style="height: 180px; object-fit: cover" />
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-dark fs-5">ลำโพงบลูทูธพกพา</h5>
+            <p class="card-text text-secondary fs-6">
+              เสียงคมชัด เบสแน่น กันน้ำได้
+              เหมาะสำหรับพกพาไปปาร์ตี้หรือท่องเที่ยว
+            </p>
+            <p class="text-danger fw-bold fs-4 mt-auto">2,500 บาท</p>
+
+            <!-- product-item: ลำโพงบลูทูธพกพา -->
+            <div class="product-item d-none" data-name="ลำโพงบลูทูธพกพา" data-price="2500"></div>
+
+            <button type="button" class="btn btn-danger w-100 fw-medium" onclick="addToCartFromCard(this)">
+              🛒 เพิ่มลงตะกร้า
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="specModal" tabindex="-1" aria-labelledby="specModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title fw-bold fs-5" id="specModalLabel">
+            📋 ข้อมูลสเปกสินค้าโดยละเอียด
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-submit="modal" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-dark">
+          <ul class="list-group list-group-flush fs-6">
+            <li class="list-group-item">
+              <strong>ซีพียู:</strong> Intel Core i7 Generation 14th
+            </li>
+            <li class="list-group-item">
+              <strong>หน่วยความจำ (RAM):</strong> 16 GB DDR5
+            </li>
+            <li class="list-group-item">
+              <strong>ความจุ (SSD):</strong> 512 GB NVMe M.2
+            </li>
+            <li class="list-group-item">
+              <strong>การ์ดจอ:</strong> NVIDIA GeForce RTX 4060
+            </li>
+            <li class="list-group-item">
+              <strong>ระบบปฏิบัติการ:</strong> Windows 11 Home แท้
+            </li>
+          </ul>
+        </div>
+        <div class="modal-header bg-light d-flex justify-content-end py-2">
+          <button type="button" class="btn btn-secondary btn-sm fw-medium" data-bs dismiss="modal">
+            ปิดหน้าต่าง
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="position-fixed z-3 d-flex flex-column gap-2" style="bottom: 80px; right: 20px;">
+
+    <a href="https://line.me/ti/p/zyuagZvH1M" target="_blank"
+      class="btn btn-success fw-bold px-3 py-2 rounded-pill shadow-lg">
+      💬 แชทผ่าน LINE
+    </a>
+
+    <a href="https://www.facebook.com/share/1HShgCTkQo/?mibextid=wwXIfr" target="_blank"
+      class="btn btn-primary fw-bold px-3 py-2 rounded-pill shadow-lg">
+      💬 แชทผ่าน Facebook
+    </a>
+
+  </div>
+
+  <div class="div-bottom-nav position-fixed bottom-0 start-0 end-0 bg-white border-top shadow d-lg-none z-3">
+    <div class="container-fluid px-0">
+      <div class="row g-0 text-center py-2">
+
+        <div class="col-3">
+          <a href="index.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+            <span class="fs-4">🏠</span>
+            <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">หน้าแรก</span>
+          </a>
+        </div>
+
+        <div class="col-3">
+          <a href="all-products-p1.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+            <span class="fs-4">🛒</span>
+            <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">สินค้า</span>
+          </a>
+        </div>
+
+        <div class="col-3">
+          <a href="order-history.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+            <span class="fs-4">📦</span>
+            <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">ประวัติ</span>
+          </a>
+        </div>
+
+        <div class="col-3">
+          <a href="login.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+            <span class="fs-4">👤</span>
+            <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">บัญชี</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- โหลด JavaScript ของ Bootstrap ก่อน แล้วตามด้วยสคริปต์ตะกร้าสินค้า (js/cart.js)
+         cart.js ประกอบด้วยฟังก์ชัน addToCart, addToCartFromCard และ updateBadge เพื่อจัดการ localStorage และ badge จำนวนรายการ -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    <!-- 📌 สังเกต: แท็ก p จะไม่มีคลาสสีล็อกไว้ เพื่อให้สีเปลี่ยนตามกล่องแม่ด้านบนได้อย่างอิสระ -->
+    <p class="m-0 fs-6 fw-light">
+      &copy; 2026 MiniShop - All Rights Reserved. พัฒนาด้วย Bootstrap 5
+      โดยนักศึกษา เทคโนโลยีธุรกิจดิจิทัล
+    </p>
+  </div>
+</footer>
+
+</html>

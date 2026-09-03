@@ -1,0 +1,177 @@
+<!DOCTYPE html> 
+<html lang="th"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>เข้าสู่ระบบ - MiniShop</title> 
+<link rel="stylesheet" href="css/bootstrap.min.css"> 
+</head> 
+<body class="bg-light"> 
+    <header class="navbar bg-white border-bottom p-3 sticky-top">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand text-danger fw-bold fs-3" href="#"
+          >🛍️ MiniShop</a
+        >
+
+        <nav class="navbar navbar-expand-lg  navbar-light bg-white shadow-sm">
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- เส้นตรง 3 ขีดขนานกัน (สลับร่างเป็นสีเข้มอัตโนมัติ) -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- 2. กล่องรายการเมนูลิงก์และระบบค้นหา (ผูก ID สอดรับกับปุ่มแฮมเบอร์เกอร์ด้านบน) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- ปรับให้ไอเทมทุกชิ้นล็อกพิกัดอยู่กึ่งกลางแนวดิ่งด้วย align-items-lg-center -->
+                <ul class="navbar-nav ms-auto fs-6 fw-medium align-items-lg-center">
+                    <li class="nav-item">
+                        <!-- 📌 เอา text-white ออก เพื่อให้ปล่อยสีเข้มตามคลาสแม่ navbar-light -->
+                        <a class="nav-link" href="index.html">🏠 หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- 🔗 ลิงก์ไปยังหน้าคลังสินค้าหน้าแรกจริง -->
+                        <a class="nav-link" href="all-products-p1.html">🛒 สินค้าทั้งหมด</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- 🔗 ลิงก์ไปยังหน้าตารางประวัติการสั่งซื้อ -->
+                        <a class="nav-link" href="order-history.html">📦 ประวัติการสั่งซื้อ</a>
+                    </li>
+
+                    <!-- 🔍 3. ช่องฟอร์มค้นหาสินค้าด่วนแบบ Inline สไตล์มินิมอล -->
+                    <li class="nav-item ms-lg-3 my-2 my-lg-0">
+                        <form class="d-flex" role="search" action="#">
+                            <!-- ช่องกรอกคำค้น ขอบมนแคปซูล พื้นหลังสว่างตัดขอบเทาจาง -->
+                            <input class="form-control form-control-sm me-2 rounded-pill bg-light text-dark border-secondary-subtle" type="search" placeholder="🔍 ค้นหาสินค้า..." aria-label="Search">
+                            <!-- ปุ่มกดส่งคำค้นขอบเส้นสีเข้มมินิมอล -->
+                            <button class="btn btn-outline-dark btn-sm rounded-pill fw-medium" type="submit">ค้นหา</button>
+                        </form>
+                    </li>
+
+                    <li class="nav-item ms-lg-3 mb-2 mb-lg-0">
+                        <!-- 🔗 ปุ่มลิงก์สลับไปหน้าจอระบบล็อกอินสมาชิก -->
+                        <a class="btn btn-danger btn-sm text-white px-3 fw-bold rounded-pill" href="login.html">🔓 เข้าสู่ระบบ</a>
+                    </li>
+                </ul>
+            </div>
+
+</nav>
+
+      </div>
+    </header>
+<div class="container mt-5"> 
+<div class="row justify-content-center"> 
+<div class="col-12 col-sm-8 col-md-6 col-lg-4"> 
+                 
+                <div class="card border-0 shadow-sm p-4 rounded-3"> 
+                    <h3 class="text-center fw-bold text-dark mb-4">🔑 เข้าสู่ระบบ</h3> 
+ 
+                    <form action="#"> 
+                        <div class="mb-3"> 
+                            <label for="email" class="form-label fs-6 fw-medium text-secondary">อีเมลผู้ใช้งาน</label> 
+                            <input type="email" id="email" class="form-control" 
+placeholder="name@example.com"> 
+                        </div> 
+ 
+                        <div class="mb-4"> 
+                            <label for="password" class="form-label fs-6 fw-medium text-secondary">รหัสผ่าน</label> 
+                            <input type="password" id="password" class="form-control" 
+placeholder="••••••••"> 
+                        </div> 
+ 
+                        <button type="submit" class="btn btn-danger w-100 fw-bold py-2">🔓 เข้าสู่ระบบ</button> 
+                    </form> 
+ 
+                    <div class="text-center mt-3"> 
+                        <p class="fs-6 text-muted m-0">ยังไม่มีบัญชี? <a href="register.html" class="text
+danger fw-semibold">สมัครสมาชิกเลย</a></p> 
+                    </div> 
+                </div> 
+ 
+            </div> 
+</div> 
+</div> 
+<div class="div-bottom-nav position-fixed bottom-0 start-0 end-0 bg-white border-top shadow d-lg-none z-3">
+        <div class="container-fluid px-0">
+            <div class="row g-0 text-center py-2">
+                
+                <div class="col-3">
+                    <a href="index.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🏠</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">หน้าแรก</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="all-products-p1.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🛒</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">สินค้า</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="order-history.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">📦</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">ประวัติ</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="login.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">👤</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">บัญชี</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<script src="js/bootstrap.bundle.min.js"></script> 
+
+<div class="div-bottom-nav position-fixed bottom-0 start-0 end-0 bg-white border-top shadow d-lg-none z-3">
+        <div class="container-fluid px-0">
+            <div class="row g-0 text-center py-2">
+                
+                <div class="col-3">
+                    <a href="index.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🏠</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">หน้าแรก</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="all-products-p1.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🛒</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">สินค้า</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="order-history.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">📦</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">ประวัติ</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="login.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">👤</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">บัญชี</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <!-- 📌 สังเกต: แท็ก p จะไม่มีคลาสสีล็อกไว้ เพื่อให้สีเปลี่ยนตามกล่องแม่ด้านบนได้อย่างอิสระ -->
+      <p class="m-0 fs-6 fw-light">
+        &copy; 2026 MiniShop - All Rights Reserved. พัฒนาด้วย Bootstrap 5
+        โดยนักศึกษา เทคโนโลยีธุรกิจดิจิทัล
+      </p>
+    </div>
+  </footer>
+</html>

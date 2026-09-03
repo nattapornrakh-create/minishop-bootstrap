@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตะกร้าสินค้า - MiniShop</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+    <!-- แถบเมนู Navbar -->
+    <header class="navbar bg-white border-bottom p-3 sticky-top">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-danger fw-bold fs-3" href="index.html">🛍️ MiniShop</a>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto fs-6 fw-medium align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">🏠 หน้าแรก</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="all-products-p1.html">🛒 สินค้าทั้งหมด</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="order-history.html">📦 ประวัติการสั่งซื้อ</a>
+                        </li>
+
+                        <li class="nav-item ms-lg-3 my-2 my-lg-0">
+                            <form class="d-flex" role="search" action="#">
+                                <input class="form-control form-control-sm me-2 rounded-pill bg-light text-dark border-secondary-subtle" type="search" placeholder="🔍 ค้นหาสินค้า..." aria-label="Search">
+                                <button class="btn btn-outline-dark btn-sm rounded-pill fw-medium" type="submit">ค้นหา</button>
+                            </form>
+                        </li>
+
+                        <!-- ปุ่มตะกร้าสินค้า -->
+                        <li class="nav-item ms-lg-3 mb-2 mb-lg-0">
+                            <a class="btn btn-danger btn-sm rounded-pill position-relative" href="cart.html">
+                                🛒 ตะกร้าสินค้า
+                                <span id="cartCountBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ms-lg-3 mb-2 mb-lg-0">
+                            <a class="btn btn-outline-danger btn-sm px-3 fw-bold rounded-pill" href="login.html">🔓 เข้าสู่ระบบ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ส่วนเนื้อหาหลัก ตะกร้าสินค้า -->
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                
+                <!-- กล่องครอบตาราง -->
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="card-header bg-dark text-white p-4">
+                        <h3 class="m-0 fw-bold">🛒 ตะกร้าสินค้าของคุณ</h3>
+                    </div>
+                    
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle m-0">
+                                <thead class="table-light text-secondary">
+                                    <tr>
+                                        <th scope="col" class="ps-4 py-3">รายการสินค้า</th>
+                                        <th scope="col" class="py-3">ราคา</th>
+                                        <th scope="col" class="text-center py-3">จัดการ</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cartTableBody">
+                                    <!-- สินค้าจะถูกนำมาแสดงตรงนี้ผ่าน JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- ส่วนสรุปยอดเงินและปุ่มชำระเงิน -->
+                    <div class="card-footer bg-white p-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
+                        <a href="index.html" class="btn btn-outline-secondary mb-3 mb-md-0 fw-medium">
+                            ⬅️ เลือกซื้อสินค้าต่อ
+                        </a>
+                        <div class="d-flex align-items-center">
+                            <h4 class="text-danger fw-bold m-0 me-4" id="cartTotalPrice">ยอดรวมสุทธิ: 0 บาท</h4>
+                            <button class="btn btn-success btn-lg fw-bold px-4 rounded-pill shadow-sm">💳 ชำระเงิน</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ส่วนท้ายเว็บไซต์ -->
+    <footer class="bg-success text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="m-0 fs-6 fw-light"> &copy; 2026 MiniShop - All Rights Reserved... </p>
+        </div>
+    </footer>
+
+    <!-- เรียกใช้สคริปต์ -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/cart.js"></script>
+    
+    <script>
+        // ฟังก์ชันสำหรับวาดตาราง
+        function renderCartPage() {
+            let tbody = document.getElementById('cartTableBody');
+            let totalDisplay = document.getElementById('cartTotalPrice');
+            let myCart = JSON.parse(localStorage.getItem('minishop_cart')) || [];
+            
+            if (!tbody) return;
+
+            tbody.innerHTML = ''; 
+            let sumTotal = 0; 
+
+            // ตรวจสอบว่าตะกร้าว่างหรือไม่
+            if (myCart.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="3" class="text-center py-5 text-muted">
+                            <h5 class="fw-light mb-0">ไม่มีสินค้าในตะกร้า 🥲</h5>
+                        </td>
+                    </tr>
+                `;
+            } else {
+                // ถ้ามีสินค้า ให้สร้างแถวตาราง
+                myCart.forEach((item, index) => {
+                    sumTotal += item.price; 
+                    tbody.innerHTML += `
+                        <tr>
+                            <td class="ps-4 fw-medium text-dark">${item.name}</td>
+                            <td class="text-danger fw-bold">${item.price.toLocaleString()} บาท</td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="removeFromCart(${index})">
+                                    🗑️ ลบ
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+
+            // แสดงยอดเงิน
+            if (totalDisplay) {
+                totalDisplay.innerText = `ยอดรวมสุทธิ: ${sumTotal.toLocaleString()} บาท`;
+            }
+        }
+        
+        // ฟังก์ชันลบสินค้า
+        function removeFromCart(index) {
+            let myCart = JSON.parse(localStorage.getItem('minishop_cart'));
+            myCart.splice(index, 1); 
+            localStorage.setItem('minishop_cart', JSON.stringify(myCart)); 
+            
+            renderCartPage(); 
+            
+            if (typeof updateBadge === "function") {
+                updateBadge(); 
+            }
+        }
+        
+        // สั่งทำงานทันทีที่เปิดหน้าเว็บ
+        renderCartPage(); 
+    </script>
+</body>
+</html>

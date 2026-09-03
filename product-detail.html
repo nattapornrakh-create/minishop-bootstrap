@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดสินค้า</title>
+    <!-- นำเข้า CSS ของ Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body class="bg-light p-4">
+<header class="navbar bg-white border-bottom p-3 sticky-top">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand text-danger fw-bold fs-3" href="#"
+          >🛍️ MiniShop</a
+        >
+
+        <nav class="navbar navbar-expand-lg  navbar-light bg-white shadow-sm">
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- เส้นตรง 3 ขีดขนานกัน (สลับร่างเป็นสีเข้มอัตโนมัติ) -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- 2. กล่องรายการเมนูลิงก์และระบบค้นหา (ผูก ID สอดรับกับปุ่มแฮมเบอร์เกอร์ด้านบน) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- ปรับให้ไอเทมทุกชิ้นล็อกพิกัดอยู่กึ่งกลางแนวดิ่งด้วย align-items-lg-center -->
+                <ul class="navbar-nav ms-auto fs-6 fw-medium align-items-lg-center">
+                    <li class="nav-item">
+                        <!-- 📌 เอา text-white ออก เพื่อให้ปล่อยสีเข้มตามคลาสแม่ navbar-light -->
+                        <a class="nav-link" href="index.html">🏠 หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- 🔗 ลิงก์ไปยังหน้าคลังสินค้าหน้าแรกจริง -->
+                        <a class="nav-link" href="all-products-p1.html">🛒 สินค้าทั้งหมด</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- 🔗 ลิงก์ไปยังหน้าตารางประวัติการสั่งซื้อ -->
+                        <a class="nav-link" href="order-history.html">📦 ประวัติการสั่งซื้อ</a>
+                    </li>
+
+                    <!-- 🔍 3. ช่องฟอร์มค้นหาสินค้าด่วนแบบ Inline สไตล์มินิมอล -->
+                    <li class="nav-item ms-lg-3 my-2 my-lg-0">
+                        <form class="d-flex" role="search" action="#">
+                            <!-- ช่องกรอกคำค้น ขอบมนแคปซูล พื้นหลังสว่างตัดขอบเทาจาง -->
+                            <input class="form-control form-control-sm me-2 rounded-pill bg-light text-dark border-secondary-subtle" type="search" placeholder="🔍 ค้นหาสินค้า..." aria-label="Search">
+                            <!-- ปุ่มกดส่งคำค้นขอบเส้นสีเข้มมินิมอล -->
+                            <button class="btn btn-outline-dark btn-sm rounded-pill fw-medium" type="submit">ค้นหา</button>
+                        </form>
+                    </li>
+
+                    <li class="nav-item ms-lg-3 mb-2 mb-lg-0">
+                        <!-- 🔗 ปุ่มลิงก์สลับไปหน้าจอระบบล็อกอินสมาชิก -->
+                        <a class="btn btn-danger btn-sm text-white px-3 fw-bold rounded-pill" href="login.html">🔓 เข้าสู่ระบบ</a>
+                    </li>
+                </ul>
+            </div>
+
+</nav>
+
+      </div>
+    </header>
+    <div class="container mt-4">
+        
+        <!-- 📦 กรอบข้อมูลสินค้าหลัก (ใช้ Card ทำกรอบสีขาวขอบมน) -->
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-lg-5 mb-5 bg-white">
+            
+            <!-- ใช้ระบบ Grid แบ่งหน้าจอซ้าย-ขวา -->
+            <div class="row g-5">
+                
+                <!-- 🖼️ ฝั่งซ้าย: แกลลอรีรูปภาพ (ใช้พื้นที่ 6 ส่วนจาก 12 ส่วน) -->
+                <div class="col-12 col-md-6">
+                    
+                    <!-- 1. พื้นที่แสดงรูปภาพขนาดใหญ่ (Tab Content) -->
+                    <div class="tab-content mb-3 border rounded-4 overflow-hidden" id="productImageContent">
+                        
+                        <!-- รูปภาพที่ 1 (ใส่คลาส show active เพื่อให้แสดงเป็นรูปแรกเสมอ) -->
+                        <div class="tab-pane fade show active" id="img1" role="tabpanel">
+                            <img src="images/banner1.jpg" class="img-fluid w-100" alt="รูปหลัก" style="height: 400px; object-fit: cover;">
+                        </div>
+                        
+                        <!-- รูปภาพที่ 2 (ซ่อนไว้รอการกดคลิก) -->
+                        <div class="tab-pane fade" id="img2" role="tabpanel">
+                            <img src="images/banner1.jpg" class="img-fluid w-100" alt="มุมซ้าย" style="height: 400px; object-fit: cover;">
+                        </div>
+
+                        <div class="tab-pane fade" id="img3" role="tabpanel">
+                            <img src="images/banner1.jpg" class="img-fluid w-100" alt="มุมซ้าย" style="height: 400px; object-fit: cover;">
+                        </div>
+
+
+                    </div>
+
+                    <!-- 2. พื้นที่ปุ่มกดสลับรูปภาพย่อย (Nav Pills) -->
+                    <ul class="nav nav-pills row g-2" id="productImageTabs" role="tablist">
+                        
+                        <!-- ปุ่มกดรูปที่ 1 (สั่งให้ไปเปิด id="img1") -->
+                        <li class="nav-item col-4" role="presentation">
+                            <button class="nav-link active w-100 p-0 bg-transparent border-0" data-bs-toggle="pill" data-bs-target="#img1" type="button" role="tab">
+                                <img src="images/banner1.jpg" class="img-fluid rounded-3 border w-100" alt="รูปย่อยที่ 1" style="height: 100px; object-fit: cover;">
+                            </button>
+                        </li>
+                        
+                        <!-- ปุ่มกดรูปที่ 2 (สั่งให้ไปเปิด id="img2") -->
+                        <li class="nav-item col-4" role="presentation">
+                            <button class="nav-link w-100 p-0 bg-transparent border-0" data-bs-toggle="pill" data-bs-target="#img2" type="button" role="tab">
+                                <img src="images/banner1.jpg" class="img-fluid rounded-3 border w-100" alt="รูปย่อยที่ 2" style="height: 100px; object-fit: cover;">
+                            </button>
+                        </li>
+
+                        <li class="nav-item col-4" role="presentation">
+                            <button class="nav-link w-100 p-0 bg-transparent border-0" data-bs-toggle="pill" data-bs-target="#img3" type="button" role="tab">
+                                <img src="images/banner1.jpg" class="img-fluid rounded-3 border w-100" alt="รูปย่อยที่ 3" style="height: 100px; object-fit: cover;">
+                            </button>
+
+                    </ul>
+                </div>
+
+                <!-- 📝 ฝั่งขวา: รายละเอียดสินค้า (ใช้พื้นที่ 6 ส่วนที่เหลือ) -->
+                <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+                    
+                    <h1 class="fw-bold mb-3 fs-2 text-dark">โน้ตบุ๊กประสิทธิภาพสูง</h1>
+                    <p class="text-muted mb-4 fs-6">
+                        สุดยอดโน้ตบุ๊กสำหรับการเรียนเขียนโปรแกรมและทำงานกราฟิก มาพร้อมหน้าจอความละเอียดสูงและระบบประมวลผลรุ่นล่าสุด
+                    </p>
+                    
+                    <h2 class="text-danger fw-bold mb-4">25,900 บาท</h2>
+                    <hr class="text-secondary mb-4">
+
+                    <button class="btn btn-danger btn-lg rounded-pill px-5 fw-bold w-100">
+                        🛒 สั่งซื้อสินค้า
+                    </button>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+<div class="div-bottom-nav position-fixed bottom-0 start-0 end-0 bg-white border-top shadow d-lg-none z-3">
+        <div class="container-fluid px-0">
+            <div class="row g-0 text-center py-2">
+                
+                <div class="col-3">
+                    <a href="index.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🏠</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">หน้าแรก</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="all-products-p1.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🛒</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">สินค้า</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="order-history.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">📦</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">ประวัติ</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="login.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">👤</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">บัญชี</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <!-- 📌 สังเกต: แท็ก p จะไม่มีคลาสสีล็อกไว้ เพื่อให้สีเปลี่ยนตามกล่องแม่ด้านบนได้อย่างอิสระ -->
+      <p class="m-0 fs-6 fw-light">
+        &copy; 2026 MiniShop - All Rights Reserved. พัฒนาด้วย Bootstrap 5
+        โดยนักศึกษา เทคโนโลยีธุรกิจดิจิทัล
+      </p>
+    </div>
+  </footer>
+</html>

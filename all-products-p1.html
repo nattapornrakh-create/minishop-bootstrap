@@ -1,0 +1,237 @@
+<!DOCTYPE html> 
+<html lang="th"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>สินค้าทั้งหมด หน้า 1 - MiniShop</title> 
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
+</head> 
+<body class="bg-light"> 
+ <header class="navbar bg-white border-bottom p-3 sticky-top">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand text-danger fw-bold fs-3" href="#"
+          >🛍️ MiniShop</a
+        >
+
+        <nav class="navbar navbar-expand-lg  navbar-light bg-white shadow-sm">
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- เส้นตรง 3 ขีดขนานกัน (สลับร่างเป็นสีเข้มอัตโนมัติ) -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- 2. กล่องรายการเมนูลิงก์และระบบค้นหา (ผูก ID สอดรับกับปุ่มแฮมเบอร์เกอร์ด้านบน) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- ปรับให้ไอเทมทุกชิ้นล็อกพิกัดอยู่กึ่งกลางแนวดิ่งด้วย align-items-lg-center -->
+                <ul class="navbar-nav ms-auto fs-6 fw-medium align-items-lg-center">
+                    <li class="nav-item">
+                        <!-- 📌 เอา text-white ออก เพื่อให้ปล่อยสีเข้มตามคลาสแม่ navbar-light -->
+                        <a class="nav-link" href="index.html">🏠 หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- 🔗 ลิงก์ไปยังหน้าคลังสินค้าหน้าแรกจริง -->
+                        <a class="nav-link" href="all-products-p1.html">🛒 สินค้าทั้งหมด</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- 🔗 ลิงก์ไปยังหน้าตารางประวัติการสั่งซื้อ -->
+                        <a class="nav-link" href="order-history.html">📦 ประวัติการสั่งซื้อ</a>
+                    </li>
+
+                    <!-- 🔍 3. ช่องฟอร์มค้นหาสินค้าด่วนแบบ Inline สไตล์มินิมอล -->
+                    <li class="nav-item ms-lg-3 my-2 my-lg-0">
+                        <form class="d-flex" role="search" action="#">
+                            <!-- ช่องกรอกคำค้น ขอบมนแคปซูล พื้นหลังสว่างตัดขอบเทาจาง -->
+                            <input class="form-control form-control-sm me-2 rounded-pill bg-light text-dark border-secondary-subtle" type="search" placeholder="🔍 ค้นหาสินค้า..." aria-label="Search">
+                            <!-- ปุ่มกดส่งคำค้นขอบเส้นสีเข้มมินิมอล -->
+                            <button class="btn btn-outline-dark btn-sm rounded-pill fw-medium" type="submit">ค้นหา</button>
+                        </form>
+                    </li>
+
+                    <li class="nav-item ms-lg-3 mb-2 mb-lg-0">
+                        <!-- 🔗 ปุ่มลิงก์สลับไปหน้าจอระบบล็อกอินสมาชิก -->
+                        <a class="btn btn-danger btn-sm text-white px-3 fw-bold rounded-pill" href="login.html">🔓 เข้าสู่ระบบ</a>
+                    </li>
+                </ul>
+            </div>
+
+</nav>
+
+      </div>
+    </header>
+<div class="container mt-5"> 
+            <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-white p-3 rounded-3 shadow-sm fs-6">
+                <li class="breadcrumb-item">
+                    <a href="index.html" class="text-danger text-decoration-none fw-medium">หน้าแรก</a>
+                </li>
+                <li class="breadcrumb-item active text-secondary" aria-current="page">
+                    สินค้าทั้งหมดภายในร้าน (หน้า 1/2)
+                </li>
+            </ol>
+        </nav>
+
+        <h2 class="fs-3 fw-bold text-dark mb-4">🛍️ สินค้าทั้งหมดภายในร้าน (หน้า 1/2)</h2> 
+ 
+        <!-- แผงสินค้าชุดที่ 1 (ชิ้นที่ 1-4) --> 
+        <div class="row g-3 mb-5"> 
+<!-- สินค้าชิ้นที่ 1 --> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3"> 
+                <div class="card h-100 border-0 shadow-sm"> 
+                    <a href="product-detail.html">
+                    <img src="images/banner1.jpg" class="card-img-top rounded-3" alt="สินค้า" 
+style="height: 180px; object-fit: cover;"> 
+        </a>
+                    <div class="card-body d-flex flex-column"> 
+                        <h5 class="card-title fw-bold text-dark fs-5">โน้ตบุ๊กประสิทธิภาพสูง</h5> 
+                        <p class="text-danger fw-bold fs-4 mt-auto">25,900 บาท</p> 
+                        <button type="button" class="btn btn-outline-secondary w-100 mb-2 fw-medium btn-sm" 
+data-bs-toggle="modal" data-bs-target="#specModal"> 
+                    🔎 ดูสเปกและรายละเอียดด่วน 
+</button>
+                        <a href="#" class="btn btn-danger w-100 fw-medium">🛒 สั่งซื้อสินค้า</a> 
+                    </div> 
+                </div> 
+            </div> 
+<!-- สินค้าชิ้นที่ 2 --> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3"> 
+                <div class="card h-100 border-0 shadow-sm"> 
+ 
+                    <img src="images/banner5.jpg" class="card-img-top rounded-3" alt="สินค้า" 
+style="height: 180px; object-fit: cover;"> 
+                    <div class="card-body d-flex flex-column"> 
+                        <h5 class="card-title fw-bold text-dark fs-5">สมาร์ตโฟนหน้าจอพับ</h5> 
+                        <p class="text-danger fw-bold fs-4 mt-auto">32,900 บาท</p> 
+                        <a href="#" class="btn btn-danger w-100 fw-medium">🛒 สั่งซื้อสินค้า</a> 
+                    </div> 
+                </div> 
+            </div> 
+<!-- สินค้าชิ้นที่ 3 --> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3"> 
+                <div class="card h-100 border-0 shadow-sm"> 
+                    <img src="images/banner3.jpg" class="card-img-top rounded-3" alt="สินค้า" 
+style="height: 180px; object-fit: cover;"> 
+                    <div class="card-body d-flex flex-column"> 
+                        <h5 class="card-title fw-bold text-dark fs-5">หูฟังไร้สายตัดเสียงรบกวน</h5> 
+                        <p class="text-danger fw-bold fs-4 mt-auto">5,900 บาท</p> 
+                        <a href="#" class="btn btn-danger w-100 fw-medium">🛒 สั่งซื้อสินค้า</a> 
+                    </div> 
+                </div> 
+            </div> 
+<!-- สินค้าชิ้นที่ 4 --> 
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3"> 
+                <div class="card h-100 border-0 shadow-sm"> 
+                    <img src="images/banner6.jpg" class="card-img-top rounded-3" alt="สินค้า" 
+style="height: 180px; object-fit: cover;"> 
+                    <div class="card-body d-flex flex-column"> 
+                        <h5 class="card-title fw-bold text-dark fs-5">แท็บเล็ตเพื่อการศึกษา</h5> 
+                        <p class="text-danger fw-bold fs-4 mt-auto">14,900 บาท</p> 
+                        <a href="#" class="btn btn-danger w-100 fw-medium">🛒 สั่งซื้อสินค้า</a> 
+ 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+ 
+        <!-- ➕ ชุดปุ่มเปลี่ยนหน้าข้อมูลประจำไฟล์หน้า 1 --> 
+        <nav class="d-flex justify-content-center mt-4"> 
+            <ul class="pagination shadow-sm"> 
+                <li class="page-item disabled"> 
+                    <span class="page-link text-secondary">ก่อนหน้า</span> 
+                </li> 
+                <li class="page-item active"> 
+                    <span class="page-link bg-danger border-danger text-white">1</span> 
+                </li> 
+                <li class="page-item"> 
+                    <!-- 🔗 ลิงก์ไปยังหน้า 2 จริง --> 
+                    <a class="page-link text-danger" href="all-products-p2.html">2</a> 
+                </li> 
+                <li class="page-item"> 
+                    <!-- 🔗 ลิงก์ไปยังหน้า 2 จริง --> 
+                    <a class="page-link text-danger" href="all-products-p2.html">ถัดไป</a> 
+                </li> 
+            </ul> 
+        </nav> 
+ 
+</div> 
+ <div class="div-bottom-nav position-fixed bottom-0 start-0 end-0 bg-white border-top shadow d-lg-none z-3">
+        <div class="container-fluid px-0">
+            <div class="row g-0 text-center py-2">
+                
+                <div class="col-3">
+                    <a href="index.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🏠</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">หน้าแรก</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="all-products-p1.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🛒</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">สินค้า</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="order-history.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">📦</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">ประวัติ</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="login.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">👤</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">บัญชี</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<div class="div-bottom-nav position-fixed bottom-0 start-0 end-0 bg-white border-top shadow d-lg-none z-3">
+        <div class="container-fluid px-0">
+            <div class="row g-0 text-center py-2">
+                
+                <div class="col-3">
+                    <a href="index.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🏠</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">หน้าแรก</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="all-products-p1.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">🛒</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">สินค้า</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="order-history.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">📦</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">ประวัติ</span>
+                    </a>
+                </div>
+                
+                <div class="col-3">
+                    <a href="login.html" class="text-decoration-none text-dark d-flex flex-column align-items-center">
+                        <span class="fs-4">👤</span>
+                        <span class="fs-7 fw-medium text-secondary" style="font-size: 11px;">บัญชี</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <!-- 📌 สังเกต: แท็ก p จะไม่มีคลาสสีล็อกไว้ เพื่อให้สีเปลี่ยนตามกล่องแม่ด้านบนได้อย่างอิสระ -->
+      <p class="m-0 fs-6 fw-light">
+        &copy; 2026 MiniShop - All Rights Reserved. พัฒนาด้วย Bootstrap 5
+        โดยนักศึกษา เทคโนโลยีธุรกิจดิจิทัล
+      </p>
+    </div>
+  </footer>
+</html>
